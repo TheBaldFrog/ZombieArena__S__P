@@ -16,10 +16,10 @@ private:
 	IntRect m_Arena; // size
 	int m_TileSize;
 
-	bool m_UpPressed;
-	bool m_DownPressed;
-	bool m_LeftPressed;
-	bool m_RightPressed;
+	bool m_UpPressed{};
+	bool m_DownPressed{};
+	bool m_LeftPressed{};
+	bool m_RightPressed{};
 
 	int m_Health;
 	int m_MaxHealth;

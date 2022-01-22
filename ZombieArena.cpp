@@ -41,6 +41,12 @@ int main()
     // The boundaries of the arena
     IntRect arena;
 
+    // Create background
+    VertexArray background;
+    // Load the texture for our backgroung vertex array
+    Texture textureBackground;
+    textureBackground.loadFromFile("graphics/background_sheet.png");
+
     // game Loop
     while (window.isOpen())
     {
@@ -159,8 +165,10 @@ int main()
                 arena.left = 0;
                 arena.top = 0;
 
-                int tileSize = 50;
+                //int tileSize = 50;
+                int tileSize = createBackground(background, arena);
                 player.spawn(arena, resolution, tileSize);
+                // Reset the clock so there isn't a frame jump
                 clock.restart();
             }
         } // End Leveling up
@@ -193,6 +201,10 @@ int main()
         {
             window.clear();
             window.setView(mainView);
+
+            // Draw the background
+            window.draw(background, &textureBackground);
+
             window.draw(player.getSprite());
         }
 
